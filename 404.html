@@ -1,0 +1,19 @@
+<!doctype html>
+<meta charset="utf-8" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Loading portfolio…</title>
+<script>
+(() => {
+  const parts = location.pathname.split("/").filter(Boolean);
+  const onGithubPages = location.hostname.endsWith(".github.io");
+  const repositoryName = "juanabiaportfolio";
+  const base = onGithubPages && parts[0]?.toLowerCase() === repositoryName
+    ? `/${parts[0]}`
+    : "";
+
+  const route = location.pathname.slice(base.length) || "/";
+  const target = `${base || ""}/?route=${encodeURIComponent(route)}${location.hash || ""}`;
+  location.replace(target);
+})();
+</script>
+<noscript>This portfolio requires JavaScript.</noscript>
